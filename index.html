@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Cleaning Service - Company Profile</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        /* Reset & Variabel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #0f172a; /* Slate Gelap Elegan */
+            --accent: #0284c7; /* Sky Blue (Higienis) */
+            --gold: #b45309; /* Sentuhan Emas Mewah */
+            --bg-light: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #ffffff;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            /* REKOMENDASI BACKGROUND 1: Tekstur Marmer Putih Halus untuk Kesan Bersih & Mewah */
+            background: linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), 
+                        url('https://unsplash.com') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigasi & Logo */
+        nav {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 15px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        /* Desain Logo Profesional Tanpa Gambar */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+        }
+        .logo-text {
+            color: var(--text-light);
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .logo-text span { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            /* REKOMENDASI BACKGROUND 2: Interior Mewah yang Berkilau & Bersih */
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
+                        no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            max-width: 900px;
+            line-height: 1.2;
+            animation: fadeIn 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            max-width: 650px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+        }
+        .btn {
+            background-color: var(--accent);
+            color: var(--text-light);
+            padding: 14px 35px;
+            border-radius: 30px; /* Lebih melengkung agar modern */
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+        }
+        .btn:hover {
+            background-color: transparent;
+            border-color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Kontainer Utama & Layanan */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+        .section-title span {
+            display: block;
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        /* Kartu dengan Efek Glassmorphism Halus */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(5px);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        }
+        .card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo-container">
+            <div class="logo-icon">P</div>
+            <div class="logo-text">PREMIUM<span>CLEAN</span></div>
+        </div>
+        <a href="#contact" class="btn" style="padding: 10px 22px; font-size: 0.85rem; box-shadow: none;">Hubungi Kami</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Kebersihan Sempurna, Citra Profesional Anda</h1>
+        <p>Layanan *cleaning service* premium untuk gedung perkantoran, komersial, dan hunian mewah dengan standar higienis tertinggi.</p>
+        <a href="#services" class="btn">Lihat Layanan Kami</a>
+    </section>
+
+    <!-- Konten Utama -->
+    <main class="container" id="services">
+        <h2 class="section-title"><span>Layanan Eksklusif</span>Solusi Kebersihan Terbaik</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>✨ Residensial Eksklusif</h3>
+                <p>Pembersihan menyeluruh untuk rumah, vila, dan apartemen mewah dengan penanganan material khusus tanpa merusak furnitur berharga.</p>
+            </div>
+            <div class="card">
+                <h3>🏢 Pembersihan Komersial</h3>
+                <p>Menjaga kebersihan dan higienitas ruang kantor, butik, dan area bisnis demi impresi profesional di mata klien Anda.</p>
+            </div>
+            <div class="card">
+                <h3>🧼 Deep Cleaning Khusus</h3>
+                <p>Sterilisasi tungau, pembersihan pasca-konstruksi, serta perawatan karpet dan sofa berbahan premium secara mendalam.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="contact"><span>Keunggulan Kami</span>Mengapa Memilih Kami?</h2>
+        <div class="grid">
+            <div class="card" style="border-top: 4px solid var(--gold);">
+                <h3 style="color: var(--gold);">⭐ Tim Tersertifikasi</h3>
+                <p>Staf kami terlatih secara profesional, jujur, menggunakan seragam rapi, dan melalui proses seleksi latar belakang yang ketat.</p>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--gold);">
+                <h3 style="color: var(--gold);">🌿 Alat & Cairan Eco-Friendly</h3>
+                <p>Menggunakan teknologi HEPA filter mutakhir dan cairan pembersih organik bersertifikat yang aman untuk anak-anak dan hewan piaraan.</p>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--gold);">
+                <h3 style="color: var(--gold);">🛡️ Garansi Kepuasan 100%</h3>
+                <p>Komitmen kami adalah hasil kerja yang berkilau. Kami siap mengirimkan tim untuk pembersihan ulang gratis jika Anda kurang puas.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Premium Clean Service. Semua Hak Dilindungi Undang-Undang.</p>
+    </footer>
+
+</body>
+</html>
